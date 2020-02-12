@@ -1,0 +1,30 @@
+#https://openpyxl.readthedocs.io/en/stable/tutorial.html
+from openpyxl import Workbook, load_workbook
+#'C:/Users/tr642633/Documents/rodrigo/atividades/saldo volante/saldo volante geral/gestechh.xlsx'
+#C:/Users/tr642633/Documents/rodrigo/transferencia_arquivo/PORTAL_GH.xlsm
+#'C:/Users/tr642633/Desktop/mini.xlsx'
+
+a = str(input("Digite a TR: "))
+
+
+wb = load_workbook('Z:/ALMOXARIFADO/Rodrigo/mini.xlsx')
+ws = wb.active
+rows = ws.rows
+print(enumerate(rows))
+for idx, row in enumerate(rows):
+    cell = row[19] # Pega a que tu precisa
+    proc = cell.value
+    if proc == a:
+         nome = ws.cell(column=11, row=idx + 1)
+         cargo = ws.cell(column=18, row=idx + 1) # adiciona +1 porque a contagem do excel começa em 1
+         cpf = ws.cell(column=14, row=idx + 1)
+         aniel = ws.cell(column=12, row=idx + 1)
+         filial = ws.cell(column=9, row=idx + 1)
+         sap = ws.cell(column=1, row=idx + 1)
+         
+         print('Nome: '+str(nome.value))
+         print('Cargo:'+str(cargo.value))
+         print('CPF: '+str(cpf.value))
+         print('Aniel: '+str(aniel.value))
+         print('SAP: '+str(sap.value))
+         print('Filial: '+str(filial.value))
