@@ -1,16 +1,23 @@
 #https://openpyxl.readthedocs.io/en/stable/tutorial.html
 from openpyxl import Workbook, load_workbook
-#'C:/Users/tr642633/Documents/rodrigo/atividades/saldo volante/saldo volante geral/gestechh.xlsx'
-#C:/Users/tr642633/Documents/rodrigo/transferencia_arquivo/PORTAL_GH.xlsm
-#'C:/Users/tr642633/Desktop/mini.xlsx'
 
+rede = str(input("Digite a rede: interna ou externa: "))
+
+if rede == 'interna':
+    rede = 'C:/Users/tr642633/Documents/rodrigo/mini.xlsx'
+
+if rede == 'externa':
+    rede = 'Z:/ALMOXARIFADO/Rodrigo/mini.xlsx'
+
+#input(rede)
+  
 a = str(input("Digite a TR: "))
 
 
-wb = load_workbook('Z:/ALMOXARIFADO/Rodrigo/mini.xlsx')
+wb = load_workbook(rede)
 ws = wb.active
 rows = ws.rows
-print(enumerate(rows))
+#print(enumerate(rows))
 for idx, row in enumerate(rows):
     cell = row[19] # Pega a que tu precisa
     proc = cell.value
@@ -21,6 +28,11 @@ for idx, row in enumerate(rows):
          aniel = ws.cell(column=12, row=idx + 1)
          filial = ws.cell(column=9, row=idx + 1)
          sap = ws.cell(column=1, row=idx + 1)
+         fone = ws.cell(column=32, row=idx + 1)
+         cc = ws.cell(column=10, row=idx + 1)
+         ga = ws.cell(column=33, row=idx + 1)
+         go = ws.cell(column=34, row=idx + 1)
+         setor = ws.cell(column=35, row=idx + 1)
          
          print('Nome: '+str(nome.value))
          print('Cargo:'+str(cargo.value))
@@ -28,3 +40,8 @@ for idx, row in enumerate(rows):
          print('Aniel: '+str(aniel.value))
          print('SAP: '+str(sap.value))
          print('Filial: '+str(filial.value))
+         print('Fone: '+str(fone.value))
+         print('Centro de custo: '+str(cc.value))
+         print('GA: '+str(ga.value))
+         print('GO: '+str(go.value))
+         print('Setor: '+str(setor.value))
