@@ -1,4 +1,4 @@
-#https://openpyxl.readthedocs.io/en/stable/tutorial.html
+#https://openpyxl.readthedocs.io/en/stable/tutorial.html.
 from openpyxl import Workbook, load_workbook
 
 rede = str(input("Digite a rede: interna ou externa: "))
