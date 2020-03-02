@@ -1,0 +1,30 @@
+#https://scapy.readthedocs.io/en/latest/introduction.html
+import re, os, subprocess, time, platform
+import sys
+from os import system #biblioteca usada para algumas funções do programa
+from scapy.all import * #biblioteca base do programa
+
+#ips = ['10.141.8.22','10.141.8.23','10.141.8.24']
+os.system('cls')
+ip = '10.141.8.'
+
+print ("lista de ips ativos e inativos da rede:")
+while True:
+    with open(os.devnull, "wb") as limbo:
+        for i in range(22,50):
+            num = str(i)
+            result=subprocess.Popen(["ping", ip+num],
+                    stdout=limbo, stderr=limbo).wait()
+            
+            
+            if result:
+                    print (ip+num, "inativo")
+                   
+
+                   
+            else:
+                    print (ip+num, "ativo")
+                   
+
+                    #time.sleep(2)
+                    #print(' -- recomeçar --')
